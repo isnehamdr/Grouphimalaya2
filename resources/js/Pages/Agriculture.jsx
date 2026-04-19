@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import MainWrapper from '@/MainComponents/MainWrapper'
-import agricultureimage from '../../../public/images/agriculture.avif'
+import agricultureimage from '../../../public/images/agriculture.jpg'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import BusinessServicesCards from '@/MainComponents/BusinessServicesCards'

@@ -137,7 +137,7 @@ function BrandSection({ brand, index, imageMap }) {
         />
       ) : (
         <div
-          className="w-full h-64 sm:h-80 lg:h-[88vh] rounded-2xl lg:rounded-3xl flex items-center justify-center text-white/20 text-sm"
+          className="w-full h-64 sm:h-80 lg:h-[82vh] rounded-2xl lg:rounded-3xl flex items-center justify-center text-white/20 text-sm"
           style={{ background: `${brand.accent}22`, border: `1px solid ${brand.accent}33` }}
         >
           {brand.name} Showroom Image
@@ -193,15 +193,18 @@ function BrandSection({ brand, index, imageMap }) {
     </div>
   )
 
-  return (
+return (
     <div
       ref={sectionRef}
       className="overflow-hidden grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20"
     >
       {reversed ? (
         <>
-          {contentEl}
-          {imageEl}
+          {/* Mobile: image first, Desktop: content left / image right */}
+          <div className="lg:hidden">{imageEl}</div>
+          <div className="hidden lg:block">{contentEl}</div>
+          <div className="hidden lg:block">{imageEl}</div>
+          <div className="lg:hidden">{contentEl}</div>
         </>
       ) : (
         <>
