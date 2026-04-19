@@ -68,19 +68,7 @@ Route::get('/corporate-profile', function () {
     return Inertia::render('CorporateProfile');
 });
 
-
-Route::get('/blog', function () {
-    return Inertia::render('Blog');
-});
-
-
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-
-Route::middleware('auth')->group(function () {
-    Route::get('/admin/blog', function () {
+ Route::get('/admin/blog', function () {
         return Inertia::render('AdminPages/AdminBlog');
     });
 
@@ -102,6 +90,19 @@ Route::middleware('auth')->group(function () {
     Route::get('/blogs/{blog}', [BlogController::class, 'show']);
     Route::put('/blogs/{blog}', [BlogController::class, 'update'])->name('blog.update');
     Route::delete('/blogs/{blog}', [BlogController::class, 'destroy'])->name('blog.destroy');
+
+Route::get('/blog', function () {
+    return Inertia::render('Blog');
+});
+
+
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::middleware('auth')->group(function () {
+   
 
 });
 
