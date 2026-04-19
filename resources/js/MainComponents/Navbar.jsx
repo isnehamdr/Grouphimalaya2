@@ -414,7 +414,7 @@ const Navbar = () => {
                 </button>
                 <DropdownMenu open={businessOpen} items={businessItems} onClose={() => setBusinessOpen(false)} />
               </div>
-<Link href="/community" className={`px-3 py-2 text-base font-medium ${url === '/' ? 'text-[#d6c3a0]' : 'text-white/80'} hover:text-white rounded-full hover:bg-white/5 transition-all duration-150`}>
+<Link href="/community" className={`px-3 py-2 text-base font-medium ${url === '/community' ? 'text-[#d6c3a0]' : 'text-white/80'} hover:text-white rounded-full hover:bg-white/5 transition-all duration-150`}>
                 Community
               </Link>
               <Link href="/blog" className={`px-3 py-2 text-base font-medium ${url === '/blog' ? 'text-[#d6c3a0]' : 'text-white/80'} hover:text-white rounded-full hover:bg-white/5 transition-all duration-150`}>Blog</Link>

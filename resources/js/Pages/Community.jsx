@@ -26,6 +26,9 @@ const Community = () => {
           </div>
         </div>
       </div>
+      <div className="w-full min-h-screen p-2 sm:p-4 text-white">
+
+      </div>
     </MainWrapper>
   )
 }
