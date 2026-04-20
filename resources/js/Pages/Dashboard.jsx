@@ -1,26 +1,18 @@
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/react';
+import React, { useContext } from 'react'
+import AppLayout from '@/Layouts/AppLayout'
+import { MainDataContext } from '@/Context/MainContext'
+const Dashboard = () => {
+    const {toggleSidebar} = useContext(MainDataContext)
+  return (
+    <AppLayout>
+        <div className='w-full min-h-screen flex flex-col relative text-neutral'>
+        <div className={`min-h-screen max-w-full ${toggleSidebar ? 'w-[96%]' : ' lg:w-[83%] sm:w-[70%] w-full'} ml-auto flex justify-start items-start py-[74px] overflow-x-auto flex-col relative md:px-10 px-2 transition-all duration-200`}>
 
-export default function Dashboard() {
-    return (
-        <AuthenticatedLayout
-            header={
-                <h2 className="text-xl font-semibold leading-tight text-gray-800">
-                    Dashboard
-                </h2>
-            }
-        >
-            <Head title="Dashboard" />
-
-            <div className="py-12">
-                <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                    <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900">
-                            You're logged in!
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </AuthenticatedLayout>
-    );
+            
+        </div>
+        </div>
+    </AppLayout>
+  )
 }
+
+export default Dashboard

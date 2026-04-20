@@ -52,7 +52,7 @@ const AddBlog = ({ showBlogAddition, setShowBlogAddition, setReloadDataTrigger }
         toast.success('Blog Added Successfully')
         } catch (error) {
             console.log('Error fetching data', error)
-            toast.error('Error Adding Blog')
+            toast.error(error?.response?.data?.message || 'Error Adding Blog')
         }    
         
     }

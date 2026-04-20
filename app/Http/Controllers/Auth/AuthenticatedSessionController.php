@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\AdminLog;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Schema;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -33,7 +35,23 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended('/');
+        $user = $request->user();
+
+        if ($user && Schema::hasTable('admin_logs')) {
+            $payload = [
+                'ip' => $request->ip(),
+                'action' => 'Logged in',
+                'modified_by' => $user->name,
+            ];
+
+            if (Schema::hasColumn('admin_logs', 'user_id')) {
+                $payload['user_id'] = $user->id;
+            }
+
+            AdminLog::create($payload);
+        }
+
+        return redirect()->intended($user?->isAdmin() ? '/admin' : '/');
     }
 
     /**
@@ -41,6 +59,22 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        $user = $request->user();
+
+        if ($user && Schema::hasTable('admin_logs')) {
+            $payload = [
+                'ip' => $request->ip(),
+                'action' => 'Logged out',
+                'modified_by' => $user->name,
+            ];
+
+            if (Schema::hasColumn('admin_logs', 'user_id')) {
+                $payload['user_id'] = $user->id;
+            }
+
+            AdminLog::create($payload);
+        }
+
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();

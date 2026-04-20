@@ -104,7 +104,7 @@ const AdminNavbar = () => {
           {showDropdown && (
             <div className="absolute right-0 mt-2 w-48 bg-base-100 border border-base-300 rounded-lg shadow-lg py-2 z-50">
                 <Link
-                  href="/user-setup"
+                  href="/user"
                   className="flex items-center px-4 py-2 "
                 >
                   <FaUserCircle className="mr-2" />

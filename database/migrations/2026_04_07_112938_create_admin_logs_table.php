@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('admin_logs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
             $table->ipAddress('ip');
             $table->string('action');
             $table->string('modified_by');

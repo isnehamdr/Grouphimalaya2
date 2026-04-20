@@ -3,18 +3,45 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Blog; 
+use App\Models\Blog;
 use App\Models\AdminLog;
-use Illuminate\Support\Facades\Storage; 
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Storage;
+use Inertia\Inertia;
 
 class BlogController extends Controller
 {
-    //
-
-    public function index()
+    /**
+     * Return all blogs as JSON (used by axios in Admin & Blog listing page).
+     */
+    public function index(Request $request)
     {
-        $blogs = Blog::latest()->get();
-        return response()->json($blogs);
+        $query = Blog::query()->latest();
+
+        if ($request->get('status') === 'published') {
+            $query->where('status', 'published');
+        }
+
+        return response()->json($query->get());
+    }
+
+    /**
+     * Show a single blog detail page via Inertia (slug-based route model binding).
+     * URL: /blogs/{slug}
+     */
+    public function show(Blog $blog)
+    {
+        // Fetch up to 4 related (published) blogs, excluding the current one
+        $relatedBlogs = Blog::where('status', 'published')
+            ->where('id', '!=', $blog->id)
+            ->latest()
+            ->take(4)
+            ->get();
+
+        return Inertia::render('BlogDetail', [
+            'blog'         => $blog,
+            'relatedBlogs' => $relatedBlogs,
+        ]);
     }
 
     public function store(Request $request)
@@ -33,18 +60,9 @@ class BlogController extends Controller
 
         $blog = Blog::create($validated);
 
-        AdminLog::create([
-            'ip' => $request->ip(), 
-            'action' => "Added a blog", 
-            'modified_by' => auth()->user()->name,
-        ]);
+        $this->logActivity($request, "Added blog: {$blog->title}");
 
         return response()->json($blog, 201);
-    }
-
-    public function show(Blog $blog)
-    {
-        return response()->json($blog);
     }
 
     public function update(Request $request, Blog $blog)
@@ -66,31 +84,44 @@ class BlogController extends Controller
 
         $blog->update($validated);
 
-         AdminLog::create([
-            'ip' => $request->ip(), 
-            'action' => "Updated a blog", 
-            'modified_by' => auth()->user()->name,
-        ]);
+        $this->logActivity($request, "Updated blog: {$blog->title}");
 
         return response()->json($blog);
     }
 
-    public function destroy(Blog $blog)
+    public function destroy(Request $request, Blog $blog)
     {
+        $title = $blog->title;
+
         if ($blog->image) {
             Storage::disk('public')->delete($blog->image);
         }
 
         $blog->delete();
 
-         AdminLog::create([
-            'ip' => $request->ip(), 
-            'action' => "Deleted a blog", 
-            'modified_by' => auth()->user()->name,
-        ]);
+        $this->logActivity($request, "Deleted blog: {$title}");
 
         return response()->json(['message' => 'Blog deleted successfully.']);
     }
 
+    protected function logActivity(Request $request, string $action): void
+    {
+        $user = $request->user();
 
+        if (!$user || !Schema::hasTable('admin_logs')) {
+            return;
+        }
+
+        $payload = [
+            'ip'          => $request->ip(),
+            'action'      => $action,
+            'modified_by' => $user->name,
+        ];
+
+        if (Schema::hasColumn('admin_logs', 'user_id')) {
+            $payload['user_id'] = $user->id;
+        }
+
+        AdminLog::create($payload);
+    }
 }
