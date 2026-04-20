@@ -1,10 +1,9 @@
-
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import MainWrapper from '@/MainComponents/MainWrapper'
 import pokharaimage from '../../../public/images/pokhara_image.jpg'
-import founderimage from '../../../public/images/message.jpg'
+import founderimage from '../../../public/images/chairman.jpeg'
 import { Head } from '@inertiajs/react'
 
 
@@ -144,10 +143,10 @@ const ChairmanMessage = () => {
           <div>
             <p className='heading-line uppercase text-2xl lg:text-7xl 2xl:text-8xl text-white text-center font-semibold'>Message</p>
             <p className='heading-line text-amber-700 text-2xl lg:text-7xl 2xl:text-8xl text-center my-4 font-semibold'>from</p>
-            <p className='heading-line text-2xl lg:text-7xl 2xl:text-8xl text-gray-400 text-center uppercase font-semibold'>The chairman</p>
+            <p className='heading-line text-2xl lg:text-7xl 2xl:text-8xl text-gray-400 text-center uppercase font-semibold'>The Chairman</p>
           </div>
           <div className='portrait-img border-[10px] border-[#f6f3ec]'>
-            <img src={founderimage} className='lg:max-w-2xl' alt='founder'/>
+            <img src={founderimage} className='lg:max-w-2xl' alt='founder' />
           </div>
         </div>
 
@@ -156,11 +155,21 @@ const ChairmanMessage = () => {
 
           {/* Left: paragraphs */}
           <div className='body-paragraphs flex flex-col gap-5 text-gray-400 text-base sm:text-lg lg:text-lg leading-relaxed lg:max-w-3xl'>
-            <p className='para-item'>Those early days — operating Nepal's first reconditioned vehicle house and bike rental service in Western Nepal — were filled with challenges that many said were insurmountable. But every setback was a lesson, and every lesson became a stepping stone toward what Himalaya Organization is today.</p>
-            <p className='para-item'>Over three decades, we have grown from a small auto venture into a conglomerate spanning automobiles, real estate, hospitality, banking, agriculture, education, housing, and engineering. We now employ over 200 professionals across 22+ branches, with an annual turnover approaching $100 million.</p>
-            <p className='para-item'>But numbers, while important, are not what drive me. What drives me is the impact we create — the jobs we generate, the homes we build, the communities we uplift through Himalaya Trust, and the entrepreneurs we inspire across Nepal.</p>
-            <p className='para-item'>As we look ahead, I am more committed than ever to our founding principles: hard work, integrity, adaptability, and excellence. The world is changing rapidly, and Nepal is changing with it. Himalaya Organization will continue to change with Nepal — always rooted in our values, always focused on building tomorrow.</p>
-            <p className='para-item'>To our clients, partners, employees, and community: thank you for being part of this journey. The best is yet to come.</p>
+            <p className='para-item'>
+              At Himalaya Organization, our journey has always been guided by a clear vision — to build businesses that create lasting value, uphold trust, and contribute meaningfully to Nepal's economic growth.
+            </p>
+            <p className='para-item'>
+              From our early beginnings in the automobile sector to our expansion across real estate, hospitality, and diversified investments, we have remained committed to excellence, integrity, and long-term sustainability. The automobile sector continues to be at the heart of our operations, where we strive to deliver global standards in products, services, and customer experience.
+            </p>
+            <p className='para-item'>
+              Our growth has been driven not only by business ambition but also by a deep sense of responsibility towards our customers, partners, and the communities we serve. We continuously adapt to changing market dynamics, embrace innovation, and explore new opportunities that align with the future of Nepal's economy.
+            </p>
+            <p className='para-item'>
+              I firmly believe that strong values, dedicated teamwork, and a forward-looking approach are the foundations of any successful organization. As we move ahead, Himalaya Organization remains committed to strengthening its legacy while contributing to the nation's progress through responsible and sustainable business practices.
+            </p>
+            <p className='para-item'>
+              Thank you for your continued trust and support.
+            </p>
           </div>
 
           {/* Right: quote + attribution */}
@@ -171,7 +180,7 @@ const ChairmanMessage = () => {
                 &ldquo;
               </span>
               <p className='text-xl sm:text-2xl lg:text-3xl font-semibold text-white leading-snug'>
-                When I started Himalaya Organization in 1991, I had a simple belief: that hard work, integrity, and an unwavering commitment to our people would build something lasting.
+                When I started Himalaya Organization, I had a simple belief: that hard work, integrity, and an unwavering commitment to our people would build something lasting.
               </p>
               <span className='block text-white/25 leading-none text-right select-none'
                 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(5rem, 14vw, 9rem)', lineHeight: '0.5', marginTop: '0.1em' }}>
@@ -181,7 +190,10 @@ const ChairmanMessage = () => {
 
             <div className='attribution flex items-center gap-3 px-1'>
               <div className='attr-line w-8 h-[2px] bg-amber-600 rounded-full' />
-              <p className='attr-name text-xl sm:text-2xl font-semibold text-gray-400 tracking-wide'>Dhruba Thapa</p>
+              <div className='attr-name flex flex-col'>
+                <p className='text-xl sm:text-2xl font-semibold text-gray-400 tracking-wide'>Mr. Dhurba Bahadur Thapa</p>
+                <p className='text-sm sm:text-base text-gray-500 tracking-widest uppercase'>Chairman, Himalaya Organization</p>
+              </div>
             </div>
           </div>
 
@@ -192,7 +204,3 @@ const ChairmanMessage = () => {
 }
 
 export default ChairmanMessage
-
-
-
-
