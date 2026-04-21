@@ -4,7 +4,7 @@ import parse from 'html-react-parser'
 import blogFallback from '../../../public/images/blog_image.avif'
 
 // Converts stored path "blogs/abc.jpg" → "/storage/blogs/abc.jpg"
-const storageUrl = (path) => `/storage/${path}`
+const storageUrl = (path) => `${import.meta.env.VITE_IMAGE_PATH}/${path}`
 
 const BlogDetail = ({ blog, relatedBlogs = [] }) => {
   // Use storageUrl() for DB-stored image path, fallback to local asset

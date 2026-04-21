@@ -10,7 +10,7 @@ import parse from 'html-react-parser'
 gsap.registerPlugin(ScrollTrigger)
 
 // Converts stored path "blogs/abc.jpg" → "/storage/blogs/abc.jpg"
-const storageUrl = (path) => `/storage/${path}`
+const storageUrl = (path) => `${import.meta.env.VITE_IMAGE_PATH}/${path}`
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([])
