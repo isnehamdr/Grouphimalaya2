@@ -147,7 +147,7 @@ const Blog = () => {
                   <p className='text-lg sm:text-2xl lg:text-3xl font-medium lg:max-w-lg leading-snug'>
                     {item.title}
                   </p>
-                  <div className='text-sm sm:text-base text-gray-300 line-clamp-4'>
+                  <div className='text-sm sm:text-base text-gray-300 line-clamp-3'>
                     {parse(item.content || '')}
                   </div>
                   <div>

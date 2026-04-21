@@ -27,26 +27,26 @@ const BlogDetail = ({ blog, relatedBlogs = [] }) => {
           <div className='absolute inset-0 bg-gradient-to-b from-black/25 via-black/45 to-black/90' />
           <div className='relative z-10 w-full px-5 py-10 sm:px-8 sm:py-14 lg:px-14 lg:py-16'>
             <div className='max-w-4xl'>
-              <Link
+              {/* <Link
                 href='/blog'
                 className='inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white/80 transition hover:bg-white/15 hover:text-white'
               >
                 Back to Blog
-              </Link>
-              <div className='mt-6 flex flex-wrap gap-3 text-sm text-white/70'>
+              </Link> */}
+              {/* <div className='mt-6 flex flex-wrap gap-3 text-sm text-white/70'>
                 <span className='rounded-full border border-[#b88a42]/40 bg-[#b88a42]/15 px-3 py-1 capitalize'>
                   {blog?.status}
                 </span>
                 <span>{new Date(blog?.created_at).toLocaleDateString()}</span>
-              </div>
+              </div> */}
               <h1 className='mt-5 max-w-4xl text-3xl font-semibold leading-tight sm:text-5xl lg:text-6xl'>
                 {blog?.title}
               </h1>
-              {blog?.meta_description && (
+              {/* {blog?.meta_description && (
                 <p className='mt-5 max-w-3xl text-sm leading-7 text-white/70 sm:text-base lg:text-lg'>
                   {blog.meta_description}
                 </p>
-              )}
+              )} */}
             </div>
           </div>
         </section>
@@ -90,9 +90,9 @@ const BlogDetail = ({ blog, relatedBlogs = [] }) => {
                       className='block rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:border-white/15 hover:bg-white/10'
                     >
                       <p className='text-lg font-medium text-white'>{item.title}</p>
-                      <p className='mt-2 line-clamp-2 text-sm text-gray-400'>
+                      {/* <p className='mt-2 line-clamp-2 text-sm text-gray-400'>
                         {item.meta_description || 'Read the full article for more details.'}
-                      </p>
+                      </p> */}
                     </Link>
                   )) : (
                     <p className='text-sm text-gray-400'>No related articles available.</p>

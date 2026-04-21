@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import vehicleImg from '../../../public/images/automobile_banner.jpg'
 import dealerImg from '../../../public/images/h5.webp'
-import serviceImg from '../../../public/images/h2.webp'
+import serviceImg from '../../../public/images/automotive3.jpg'
 import { router } from '@inertiajs/react'
 
 const items = [
@@ -20,7 +20,7 @@ const items = [
   {
     title: 'Service and Parts',
     body: 'Certified servicing, genuine parts, diagnostics, and warranty-backed maintenance.',
-    image: dealerImg,
+    image: serviceImg,
   },
 ]
 

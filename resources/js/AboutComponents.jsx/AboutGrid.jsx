@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from 'react'
 import firstimage from '../../../public/images/vision.jpeg'
 import secondimage from '../../../public/images/h5.webp'
-import thirdimage from '../../../public/images/automobile.avif'
+import thirdimage from '../../../public/images/automobile_banner.jpg'
 import fourthimage from '../../../public/images/banking.avif'
 
 // npm install gsap

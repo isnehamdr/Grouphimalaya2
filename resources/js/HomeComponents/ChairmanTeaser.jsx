@@ -1,7 +1,7 @@
 
 
 import React, { useEffect, useRef } from 'react'
-import chairmanImg from '../../../public/images/message.jpg'
+import chairmanImg from '../../../public/images/chairman.jpeg'
 import { router } from '@inertiajs/react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'

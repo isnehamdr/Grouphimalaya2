@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-import automobile from '../../../public/images/SMALL-2.webp'
+import automobile from '../../../public/images/automotive2.jpg'
 import supporticon from '../../../public/images/icon_support.webp'
 import housingimage from '../../../public/images/realestate.avif'
 import hospitalityimage from '../../../public/images/hospitality.webp'

@@ -23,6 +23,7 @@ Route::get('/message-from-chairman', fn() => Inertia::render('ChairmanMessage'))
 Route::get('/career', fn() => Inertia::render('Career'));
 Route::get('/community', fn() => Inertia::render('Community'));
 Route::get('/corporate-profile', fn() => Inertia::render('CorporateProfile'));
+Route::get('/company-profile', fn() => Inertia::render('CompanyProfile'));
 
 // ─── BLOG PUBLIC PAGES ───────────────────────────────────────────
 // Blog listing page (renders Inertia Blog.jsx)
@@ -64,6 +65,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/user-setup', [UserSetupController::class, 'store'])->name('user-setup.store');
     Route::put('/user-setup/{user}', [UserSetupController::class, 'update'])->name('user-setup.update');
     Route::delete('/user-setup/{user}', [UserSetupController::class, 'destroy'])->name('user-setup.destroy');
+ 
+
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

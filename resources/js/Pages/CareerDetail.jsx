@@ -18,17 +18,17 @@ const CareerDetail = ({ career, relatedCareers = [] }) => {
           <div className='absolute inset-0 bg-gradient-to-b from-black/25 via-black/50 to-black/90' />
           <div className='relative z-10 w-full px-5 py-10 sm:px-8 sm:py-14 lg:px-14 lg:py-16'>
             <div className='max-w-4xl'>
-              <Link
+              {/* <Link
                 href='/career'
                 className='inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white/80 transition hover:bg-white/15 hover:text-white'
               >
                 Back to Career
-              </Link>
-              <div className='mt-6 flex flex-wrap gap-3 text-sm text-white/75'>
+              </Link> */}
+              {/* <div className='mt-6 flex flex-wrap gap-3 text-sm text-white/75'>
                 <span className='rounded-full border border-[#b88a42]/40 bg-[#b88a42]/15 px-3 py-1'>{career?.work_mode}</span>
                 <span className='rounded-full border border-white/15 bg-white/10 px-3 py-1'>{career?.employment_type}</span>
                 <span>{new Date(career?.created_at).toLocaleDateString()}</span>
-              </div>
+              </div> */}
               <h1 className='mt-5 max-w-4xl text-3xl font-semibold leading-tight sm:text-5xl lg:text-6xl'>
                 {career?.title}
               </h1>
@@ -53,7 +53,8 @@ const CareerDetail = ({ career, relatedCareers = [] }) => {
                 </div>
                 <div className='rounded-2xl border border-white/10 bg-white/5 p-4'>
                   <p className='text-xs uppercase tracking-[0.25em] text-gray-500'>Status</p>
-                  <p className='mt-3 text-lg capitalize text-white'>{career?.status}</p>
+                  {/* <p className='mt-3 text-lg capitalize text-white'>{career?.status}</p> */}
+                  <p className='mt-3 text-lg capitalize text-white'>{new Date(career?.created_at).toLocaleDateString()}</p>
                 </div>
               </div>
 
