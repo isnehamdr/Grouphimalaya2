@@ -100,9 +100,9 @@ class CareerController extends Controller
             'modified_by' => $user->name,
         ];
 
-        if (Schema::hasColumn('admin_logs', 'user_id')) {
-            $payload['user_id'] = $user->id;
-        }
+        // if (Schema::hasColumn('admin_logs', 'user_id')) {
+        //     $payload['user_id'] = $user->id;
+        // }
 
         \App\Models\AdminLog::create($payload);
     }

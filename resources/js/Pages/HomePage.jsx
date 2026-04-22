@@ -12,18 +12,22 @@ import AutomotiveShowcase from '@/HomeComponents/AutomotiveShowcase'
 import ChairmanTeaser from '@/HomeComponents/ChairmanTeaser'
 import LatestUpdates from '@/HomeComponents/LatestUpdates'
 import VisionMission from '@/HomeComponents/VisionMission'
-import LeadershipTeaser from '@/HomeComponents/LeadershipTeaser'
 import CareersCTA from '@/HomeComponents/CareersCTA'
 import ContactStrip from '@/HomeComponents/ContactStrip'
-import { Head } from '@inertiajs/react'
 import Subhero from '@/HomeComponents/Subhero'
-const HomePage = () => {
+import SEO from '@/Components/SEO'
+
+const HomePage = ({ url }) => {
   return (
     <MainWrapper>
-      <Head>
-        <title>Himalaya Organization</title>
-      </Head>
-        <div className='bg-[#0b0c0f]'>
+
+      <SEO
+        title="Automobile, Real Estate, Banking & Engineering in Nepal"
+        description="Himalaya Organization is a leading business group in Nepal offering services in automobile, real estate, banking, agriculture, and engineering sectors."
+        url={url}
+      />
+
+      <div className='bg-[#0b0c0f]'>
         <Hero/>
         <Subhero/>
         <Stats/>
@@ -33,15 +37,14 @@ const HomePage = () => {
         <AutomotiveShowcase/>
         <Business/>
         <ChairmanTeaser/>
-       
         <GrowthJourney/>
-         <LatestUpdates/>
+        <LatestUpdates/>
         <VisionMission/>
-        {/* <LeadershipTeaser/> */}
         <CareersCTA/>
         <ContactStrip/>
         <Faq/>
-        </div>
+      </div>
+
     </MainWrapper>
   )
 }

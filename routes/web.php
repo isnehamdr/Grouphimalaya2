@@ -73,7 +73,66 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// ─── 404 FALLBACK ─────────────────────────────────────────────────
+
+// ─── SITEMAP (PUT HERE) ───────────────────────────────────────────
+use Carbon\Carbon;
+use App\Models\Career;
+
+Route::get('/sitemap.xml', function () {
+
+    $urls = [];
+
+    $staticPages = [
+        ['path' => '/', 'priority' => '1.0'],
+        ['path' => '/about', 'priority' => '0.9'],
+        ['path' => '/contact', 'priority' => '0.8'],
+        ['path' => '/blog', 'priority' => '0.9'],
+
+        ['path' => '/career', 'priority' => '0.8'], // 👈 ADD CAREER LIST PAGE
+    ];
+
+    foreach ($staticPages as $page) {
+        $urls[] = [
+            'loc' => url($page['path']),
+            'lastmod' => now()->toAtomString(),
+            'changefreq' => 'weekly',
+            'priority' => $page['priority'],
+        ];
+    }
+
+    // ----------------------------
+    // BLOGS (dynamic)
+    // ----------------------------
+    $blogs = \App\Models\Blog::all();
+
+    foreach ($blogs as $blog) {
+        $urls[] = [
+            'loc' => url('/blogs/' . $blog->slug),
+            'lastmod' => optional($blog->updated_at)->toAtomString() ?? now()->toAtomString(),
+            'changefreq' => 'weekly',
+            'priority' => '0.9',
+        ];
+    }
+
+    // ----------------------------
+    // CAREERS (dynamic)
+    // ----------------------------
+    $careers = Career::all();
+
+    foreach ($careers as $career) {
+        $urls[] = [
+            'loc' => url('/career/' . $career->slug), // 👈 detail page
+            'lastmod' => optional($career->updated_at)->toAtomString() ?? now()->toAtomString(),
+            'changefreq' => 'monthly',
+            'priority' => '0.7',
+        ];
+    }
+
+    return response()->view('sitemap', compact('urls'))
+        ->header('Content-Type', 'text/xml');
+});
+
+// ─── 404 FALLBACK (MUST BE LAST) ─────────────────────────────────
 Route::fallback(function () {
     return Inertia::render('NotFoundPage')
         ->toResponse(request())
@@ -86,26 +145,12 @@ Route::fallback(function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// ─── 404 FALLBACK ─────────────────────────────────────────────────
+Route::fallback(function () {
+    return Inertia::render('NotFoundPage')
+        ->toResponse(request())
+        ->setStatusCode(404);
+});
 
 
 

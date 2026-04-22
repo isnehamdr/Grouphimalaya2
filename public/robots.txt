@@ -1,2 +1,15 @@
 User-agent: *
-Disallow:
+Allow: /
+
+# Block sensitive/internal routes
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /login
+Disallow: /register
+Disallow: /user-setup
+
+# API routes (optional but recommended)
+Disallow: /api
+
+# Sitemap (CRITICAL)
+Sitemap: https://updategrouphimalaya.saitsolution.com.np/sitemap.xml

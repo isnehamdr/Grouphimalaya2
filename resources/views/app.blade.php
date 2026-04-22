@@ -3,8 +3,19 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+<title inertia>{{ config('app.name') }}</title>
 
-        <title inertia>{{ config('app.name') }}</title>
+<meta name="description" content="Default company description here" />
+<link rel="canonical" href="{{ url()->current() }}" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{ config('app.name') }}" />
+<meta property="og:description" content="Default company description here" />
+<meta property="og:url" content="{{ url()->current() }}" />
+<meta property="og:type" content="website" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -24,5 +35,29 @@
     </head>
     <body class="font-sans antialiased">
         @inertia
+
+<nav class="sr-only" aria-label="Site navigation index">
+    <!-- Main Pages -->
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/automobile">Automobile</a>
+    <a href="/realestate">Real Estate</a>
+    <a href="/hospitality">Hospitality</a>
+    <a href="/banking">Banking</a>
+    <a href="/agriculture">Agriculture</a>
+    <a href="/engineering">Engineering</a>
+    <a href="/community">Community</a>
+    <a href="/contact">Contact</a>
+    <a href="/organization-history">Organization History</a>
+    <a href="/message-from-chairman">Message From Chairman</a>
+    <a href="/corporate-profile">Corporate Profile</a>
+    <a href="/company-profile">Company Profile</a>
+    <a href="/blog">Blog</a>
+    <a href="/career">Career</a>
+</nav>
+
+
+
+
     </body>
 </html>

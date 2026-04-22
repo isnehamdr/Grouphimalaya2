@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class AdminLog extends Model
 {
     protected $fillable = [
-        'user_id',
         'ip',
         'action',
         'modified_by',

@@ -14,7 +14,7 @@ import { toast } from 'react-toastify'
 import parse from 'html-react-parser'
 
 // Helper: converts a stored path like "blogs/abc.jpg" → "/storage/blogs/abc.jpg"
-const storageUrl = (path) => `/storage/${path}`
+const storageUrl = (path) => `${import.meta.env.VITE_IMAGE_PATH}/${path}`
 
 const AdminBlog = () => {
     const { toggleSidebar } = useContext(MainDataContext)
