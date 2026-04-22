@@ -436,10 +436,10 @@ const Navbar = () => {
               </div>
             {/* Contact + Hamburger */}
             <div className="flex items-center  gap-2">
-              <button onClick={() => window.open('/company-profile', '_blank')}
+              <button onClick={() => router.visit('/community')}
                 className="group relative h-11 sm:h-12 px-6 sm:px-8 overflow-hidden rounded-full bg-[#b08d57] text-black text-sm sm:text-base font-medium"
               >
-                <span className="relative z-10">Company Profile</span>
+                <span className="relative z-10">CSR</span>
                 <span className="absolute inset-0 overflow-hidden rounded-md">
                   <span className="absolute left-0 aspect-square w-full origin-center -translate-x-full rounded-full bg-white/30 transition-all duration-500 group-hover:-translate-x-0 group-hover:scale-150" />
                 </span>
@@ -521,8 +521,8 @@ const Navbar = () => {
         </div>
 
         <div className="px-4 pb-6 pt-3 border-t border-white/10">
-          <button onClick={() => window.open('/company-profile', '_blank')} className="group relative w-full h-11 overflow-hidden rounded-full bg-[#b08d57] text-black text-sm font-medium">
-            <span className="relative z-10">Company Profile</span>
+          <button onClick={() => router.visit('/community')} className="group relative w-full h-11 overflow-hidden rounded-full bg-[#b08d57] text-black text-sm font-medium">
+            <span className="relative z-10">CSR</span>
             <span className="absolute inset-0 overflow-hidden rounded-full">
               <span className="absolute left-0 aspect-square w-full origin-center -translate-x-full rounded-full bg-white/30 transition-all duration-500 group-hover:-translate-x-0 group-hover:scale-150" />
             </span>

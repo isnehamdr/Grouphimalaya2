@@ -80,4 +80,33 @@ Route::fallback(function () {
         ->setStatusCode(404);
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 require __DIR__ . '/auth.php';
