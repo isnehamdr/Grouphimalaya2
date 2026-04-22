@@ -369,7 +369,7 @@ const Navbar = () => {
           className={`
             transition-all duration-200 ease-out
             ${isPill
-              ? 'mx-4 sm:mx-8 md:mx-16 lg:mx-72 2xl:mx-[300px] mt-4 rounded-full bg-[#0e1116]/90 backdrop-blur-md border border-white/10 shadow-sm px-2'
+              ? 'mx-4 sm:mx-8 md:mx-16 lg:mx-72 2xl:mx-[360px] mt-4 rounded-full bg-[#0e1116]/90 backdrop-blur-md border border-white/10 shadow-sm px-2'
               : 'mx-0 mt-0 rounded-none bg-[#0e1116] border-b border-white/10 px-2 lg:px-8'
             }
           `}
@@ -414,9 +414,9 @@ const Navbar = () => {
                 </button>
                 <DropdownMenu open={businessOpen} items={businessItems} onClose={() => setBusinessOpen(false)} />
               </div>
-<Link href="/community" className={`px-3 py-2 text-base font-medium ${url === '/community' ? 'text-[#d6c3a0]' : 'text-white/80'} hover:text-white rounded-full hover:bg-white/5 transition-all duration-150`}>
+{/* <Link href="/community" className={`px-3 py-2 text-base font-medium ${url === '/community' ? 'text-[#d6c3a0]' : 'text-white/80'} hover:text-white rounded-full hover:bg-white/5 transition-all duration-150`}>
                 Community
-              </Link>
+              </Link> */}
               <Link href="/blog" className={`px-3 py-2 text-base font-medium ${url === '/blog' ? 'text-[#d6c3a0]' : 'text-white/80'} hover:text-white rounded-full hover:bg-white/5 transition-all duration-150`}>Blog</Link>
               <Link href="/career" className={`px-3 py-2 text-base font-medium ${url === '/career' ? 'text-[#d6c3a0]' : 'text-white/80'} hover:text-white rounded-full hover:bg-white/5 transition-all duration-150`}>Career</Link>
                             <Link href="/contact" className={`px-3 py-2 text-base font-medium ${url === '/contact' ? 'text-[#d6c3a0]' : 'text-white/80'} hover:text-white rounded-full hover:bg-white/5 transition-all duration-150`}>Contact</Link>
@@ -513,7 +513,7 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          <Link href="/community" className="px-4 py-3 rounded-xl text-sm font-medium text-white hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>Community</Link>
+          {/* <Link href="/community" className="px-4 py-3 rounded-xl text-sm font-medium text-white hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>Community</Link> */}
           <Link href="/blog" className="px-4 py-3 rounded-xl text-sm font-medium text-white hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>Blog</Link>
           <Link href="/career" className="px-4 py-3 rounded-xl text-sm font-medium text-white hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>Career</Link>
                     <Link href="/contact" className="px-4 py-3 rounded-xl text-sm font-medium text-white hover:bg-white/5 transition-colors" onClick={() => setMobileOpen(false)}>Contact </Link>

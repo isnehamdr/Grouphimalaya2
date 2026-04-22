@@ -24,6 +24,7 @@ Route::get('/career', fn() => Inertia::render('Career'));
 Route::get('/community', fn() => Inertia::render('Community'));
 Route::get('/corporate-profile', fn() => Inertia::render('CorporateProfile'));
 Route::get('/company-profile', fn() => Inertia::render('CompanyProfile'));
+Route::get('/force-service', fn() => Inertia::render('ForceService'));
 
 // ─── BLOG PUBLIC PAGES ───────────────────────────────────────────
 // Blog listing page (renders Inertia Blog.jsx)

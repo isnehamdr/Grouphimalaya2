@@ -88,7 +88,6 @@
 
 // export default BrandStrip
 
-
 import React, { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 
@@ -96,7 +95,6 @@ import forcelogo from '../../../public/images/force_motors_logo.png'
 import maxuslogo from '../../../public/images/maxus_logo.png'
 import fordlogo from '../../../public/images/ford_logo.png'
 import mountainglorylogo from '../../../public/images/mountain_glory_logo.png'
-import nmbbanklogo from '../../../public/images/nmb_bank_logo.png'
 import logo1 from '../../../public/images/2logo.png'
 import kal from '../../../public/images/kal.png'
 
@@ -105,7 +103,6 @@ const brands = [
   maxuslogo,
   fordlogo,
   mountainglorylogo,
-  nmbbanklogo,
   logo1,
   kal,
 ]
@@ -116,7 +113,6 @@ const BrandStrip = () => {
   const marqueeRef = useRef(null)
   const tweenRef = useRef(null)
 
-  // Duplicate for seamless loop
   const loopedBrands = [...brands, ...brands, ...brands]
 
   useEffect(() => {
@@ -146,7 +142,6 @@ const BrandStrip = () => {
     const marquee = marqueeRef.current
     if (!marquee) return
 
-    // Width of one set of brands (1/3 of total since we tripled)
     const totalWidth = marquee.scrollWidth / 3
 
     tweenRef.current = gsap.to(marquee, {
@@ -159,7 +154,6 @@ const BrandStrip = () => {
       },
     })
 
-    // Pause on hover
     const pause = () => tweenRef.current?.pause()
     const resume = () => tweenRef.current?.resume()
 
@@ -198,10 +192,6 @@ const BrandStrip = () => {
         {/* Marquee Track */}
         <div className="relative">
 
-          {/* Fade edges */}
-          {/* <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-24 z-10 bg-gradient-to-r from-[#0b0c0f] to-transparent" />
-          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-24 z-10 bg-gradient-to-l from-[#0b0c0f] to-transparent" /> */}
-
           {/* Scrolling strip */}
           <div
             ref={marqueeRef}
@@ -233,12 +223,21 @@ const BrandStrip = () => {
                 {/* Glass reflection */}
                 <div className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 to-transparent opacity-40" />
 
-                {/* Logo */}
-                <img
-                  src={brand}
-                  className="w-24 sm:w-28 object-contain relative z-10 transition duration-300 brightness-90 hover:brightness-110"
-                  alt="brand logo"
-                />
+                {/* ✅ Fixed: uniform logo box with both width AND height constrained */}
+                <div className="relative z-10 w-24 h-12 sm:w-28 sm:h-14 flex items-center justify-center">
+                  <img
+                    src={brand}
+                    alt="brand logo"
+                    className="
+                      max-w-full max-h-full
+                      w-auto h-auto
+                      object-contain
+                      transition duration-300
+                      brightness-90 hover:brightness-110
+                    "
+                  />
+                </div>
+
               </div>
             ))}
           </div>

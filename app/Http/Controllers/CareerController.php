@@ -7,6 +7,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Inertia\Inertia;
+use App\Models\AdminLog;
 
 class CareerController extends Controller
 {
@@ -104,6 +105,6 @@ class CareerController extends Controller
         //     $payload['user_id'] = $user->id;
         // }
 
-        \App\Models\AdminLog::create($payload);
+        // \App\Models\AdminLog::create($payload);
     }
 }

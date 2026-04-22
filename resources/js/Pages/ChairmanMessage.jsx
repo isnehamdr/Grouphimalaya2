@@ -206,13 +206,10 @@
 // export default ChairmanMessage
 
 
-
-
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import MainWrapper from '@/MainComponents/MainWrapper'
-import pokharaimage from '../../../public/images/pokhara_image.jpg'
 import founderimage from '../../../public/images/chairman.jpeg'
 import SEO from '@/Components/SEO'
 
@@ -329,50 +326,72 @@ const ChairmanMessage = () => {
     <MainWrapper>
       <SEO {...seoData} />
       
-      <div className='w-full min-h-screen p-2 sm:p-4 text-white' ref={containerRef}>
 
-        {/* Hero image */}
-        <div
-          className='hero-banner rounded-2xl h-[30vh] sm:h-[35vh] lg:h-[70vh] bg-cover bg-center bg-no-repeat relative overflow-visible'
-          style={{ backgroundImage: `url(${pokharaimage})` }}
-        >
-          <div className='absolute inset-0 rounded-2xl bg-black/60' />
-        </div>
+      <div className="w-full min-h-screen p-2 sm:p-4 text-white" ref={containerRef}>
 
-        {/* Small screen layout */}
-        <div className='lg:hidden flex flex-col items-center mt-6 px-4 gap-5'>
-          <div className='mobile-card-row flex flex-row items-center gap-5 w-full'>
-            <div className='border-[6px] border-[#f6f3ec] shadow-md flex-shrink-0'>
-              <img 
-                src={founderimage} 
-                className='w-28 sm:w-36 object-cover' 
-                alt="Mr. Dhurba Bahadur Thapa - Chairman of Himalaya Organization" 
-              />
-            </div>
-            <div>
-              <p className='uppercase text-xl sm:text-2xl text-gray-800 font-semibold leading-tight'>Message</p>
-              <p className='text-amber-700 text-xl sm:text-2xl font-semibold leading-tight my-1'>from</p>
-              <p className='text-xl sm:text-2xl text-gray-400 font-semibold uppercase leading-tight'>The Chairman</p>
-            </div>
-          </div>
-          <div className='mobile-divider w-16 h-[3px] bg-amber-800 rounded-full' />
-        </div>
+  {/* Hero Banner + Portrait: unified layout */}
+  <div className="hero-banner relative rounded-2xl overflow-hidden bg-black">
 
-        {/* Large screen layout */}
-        <div className='heading-block hidden lg:flex justify-between items-end lg:px-20 lg:-mt-[46vh] 2xl:-mt-[50vh] relative z-10'>
-          <div>
-            <p className='heading-line uppercase text-2xl lg:text-7xl 2xl:text-8xl text-white text-center font-semibold'>Message</p>
-            <p className='heading-line text-amber-700 text-2xl lg:text-7xl 2xl:text-8xl text-center my-4 font-semibold'>from</p>
-            <p className='heading-line text-2xl lg:text-7xl 2xl:text-8xl text-gray-400 text-center uppercase font-semibold'>The Chairman</p>
-          </div>
-          <div className='portrait-img border-[10px] border-[#f6f3ec]'>
-            <img 
-              src={founderimage} 
-              className='lg:max-w-2xl' 
-              alt='Mr. Dhurba Bahadur Thapa - Founder and Chairman of Himalaya Organization' 
-            />
-          </div>
-        </div>
+    {/* Background image slot — add your bg-image here */}
+    <div className="absolute inset-0 bg-black/60 z-10 rounded-2xl" />
+
+    {/* Content overlay */}
+    <div className="relative z-20 flex flex-col lg:flex-row items-center lg:items-end justify-between
+                    gap-6 lg:gap-0 px-6 sm:px-10 lg:px-20 pt-8 sm:pt-12 lg:pt-28">
+
+      {/* Portrait — centered on mobile, right on desktop */}
+      <div className="portrait-img flex-shrink-0 order-1 lg:order-2 self-center mt-12 lg:self-end
+                      border-[6px] lg:border-[10px] border-[#f6f3ec] shadow-2xl">
+        <img
+          src={founderimage}
+          alt="Mr. Dhurba Bahadur Thapa - Founder and Chairman of Himalaya Organization"
+          className="w-72 sm:w-64 lg:w-80 2xl:w-96 object-cover block"
+        />
+      </div>
+
+    <div className=" lg:pb-14 flex-shrink-0 order-2 lg:order-1 text-center lg:text-left pt-2 lg:pt-0">
+  {/* Single line on mobile, multi-line on large screens */}
+  <div className="lg:block hidden">
+    <p className="heading-line uppercase font-semibold leading-tight
+                  text-3xl sm:text-5xl lg:text-7xl 2xl:text-8xl text-white
+                  inline lg:block">
+      Message{' '}
+    </p>
+    <p className="heading-line font-semibold leading-tight my-1 sm:my-2 lg:my-4
+                  text-3xl sm:text-5xl lg:text-7xl 2xl:text-8xl text-amber-600
+                  inline lg:block lg:mx-0">
+      from{' '}
+    </p>
+    <p className="heading-line uppercase font-semibold leading-tight
+                  text-3xl sm:text-5xl lg:text-7xl 2xl:text-8xl text-gray-400
+                  inline lg:block">
+      The Chairman
+    </p>
+  </div>
+  <div className="lg:hidden block">
+    <p className="heading-line uppercase font-semibold leading-tight
+                  text-3xl sm:text-5xl lg:text-7xl 2xl:text-8xl text-white
+                  inline lg:block">
+      Message{' '}
+    </p>
+    <p className="heading-line font-semibold leading-tight my-1 sm:my-2 lg:my-4
+                  text-3xl sm:text-5xl lg:text-7xl 2xl:text-8xl text-white
+                  inline lg:block lg:mx-0">
+      FROM{' '}
+    </p>
+    <br />
+    <p className="heading-line uppercase font-semibold leading-tight
+                  text-3xl sm:text-5xl lg:text-7xl 2xl:text-8xl text-gray-400
+                  inline lg:block">
+      The Chairman
+    </p>
+  </div>
+  {/* Amber divider — centered on mobile, left-aligned on desktop */}
+  <div className="mobile-divider mt-5 w-12 h-[3px] bg-amber-700 rounded-full mx-auto lg:mx-0" />
+</div>
+
+    </div>
+  </div>
 
         {/* Bottom content */}
         <div className='flex flex-col lg:flex-row justify-between gap-10 lg:gap-16 py-12 sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-20'>

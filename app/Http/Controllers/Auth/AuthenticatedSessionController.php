@@ -48,7 +48,7 @@ class AuthenticatedSessionController extends Controller
                 $payload['user_id'] = $user->id;
             }
 
-            AdminLog::create($payload);
+            // AdminLog::create($payload);
         }
 
         return redirect()->intended($user?->isAdmin() ? '/admin' : '/');

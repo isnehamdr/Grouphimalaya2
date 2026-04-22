@@ -248,7 +248,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import BusinessServicesCards from '@/MainComponents/BusinessServicesCards'
 import BusinessFeatures from '@/MainComponents/BusinessFeatures'
 import Faq from '@/HomeComponents/Faq'
-import businessimage from "../../../public/images/h2.webp";
+import businessimage from "../../../public/images/banking.avif";
 import SEO from '@/Components/SEO' // Import the SEO component
 
 const services = [

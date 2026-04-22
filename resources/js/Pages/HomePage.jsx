@@ -16,6 +16,7 @@ import CareersCTA from '@/HomeComponents/CareersCTA'
 import ContactStrip from '@/HomeComponents/ContactStrip'
 import Subhero from '@/HomeComponents/Subhero'
 import SEO from '@/Components/SEO'
+import LaunchingSoon from '@/HomeComponents/LaunchingSoon'
 
 const HomePage = ({ url }) => {
   return (
@@ -36,6 +37,7 @@ const HomePage = ({ url }) => {
         <BusinessGrid/>
         <AutomotiveShowcase/>
         <Business/>
+        <LaunchingSoon/>
         <ChairmanTeaser/>
         <GrowthJourney/>
         <LatestUpdates/>
